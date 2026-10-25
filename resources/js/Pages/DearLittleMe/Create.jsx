@@ -1,7 +1,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import { LockClosedIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { LockClosedIcon, ArrowLeftIcon, HeartIcon } from "@heroicons/react/24/outline";
 import EnvelopeOverlay from "@/Components/DearLittleMe/EnvelopeOverlay";
 
 export default function Create() {
@@ -104,6 +104,19 @@ export default function Create() {
                             Tuliskan apa yang ingin kamu sampaikan kepada
                             dirimu saat kecil dengan jujur dan penuh kasih.
                         </p>
+
+                        <div className="mx-auto mt-6 flex max-w-2xl items-start gap-3 rounded-2xl border border-violet-100 bg-white/80 px-5 py-4 text-left shadow-sm sm:px-6">
+                            <HeartIcon className="mt-0.5 h-5 w-5 shrink-0 text-violet-500" />
+                            <p className="text-sm leading-7 text-gray-600">
+                                <span className="font-semibold text-violet-700">
+                                    Pelan-pelan saja.
+                                </span>{" "}
+                                Tidak apa-apa jika suratmu belum rapi atau belum
+                                selesai. Jangan menghakimi dirimu di sini —
+                                tulis dengan lembut, seperti kamu menyemangati
+                                anak kecil yang kamu sayangi.
+                            </p>
+                        </div>
 
                     </div>
 

@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
-import { EnvelopeIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, HeartIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Swal from "sweetalert2";
 
 export default function Index({ letters, letterCount }) {
@@ -86,7 +86,7 @@ export default function Index({ letters, letterCount }) {
                                 Suratku
                             </h2>
                             <p className="mt-3 text-sm text-gray-500 sm:text-base">
-                                Kenangan indah yang kamu tulis untuk dirimu yang lebih muda.
+                                Bukan hanya kenangan indah — ada juga permintaan maaf dan rasa terima kasih yang kamu titipkan untuk dirimu yang lebih muda.
                             </p>
                         </div>
 
@@ -109,6 +109,29 @@ export default function Index({ letters, letterCount }) {
                             </div>
                         </div>
                     )}
+
+                    {/* Catatan Lembut */}
+                    <div className="mt-8 flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white px-5 py-4 shadow-sm sm:px-6 sm:py-5">
+                        <HeartIcon className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
+                        <p className="text-sm leading-7 text-gray-600 sm:text-base">
+                            <span className="font-semibold text-gray-800">
+                                Tidak perlu menulis dengan sempurna.
+                            </span>{" "}
+                            Surat ini bukan ruang untuk menghakimi diri sendiri —
+                            tulis dengan lembut, seperti kamu berbicara pada
+                            anak kecil yang kamu sayangi.
+                        </p>
+                    </div>
+
+                    {/* Quote Box */}
+                    <div className="mt-6 rounded-3xl border border-emerald-200/80 bg-emerald-100/60 p-6 sm:p-10 md:p-12">
+                        <p className="text-center text-base italic leading-relaxed text-emerald-950 sm:text-xl md:text-2xl">
+                            "Anak kecil di dalam dirimu mungkin masih menunggu seseorang berkata,{" "}
+                            <span className="font-semibold text-emerald-800">
+                                ‘Aku bangga padamu, terima kasih sudah bertahan.’
+                            </span>"
+                        </p>
+                    </div>
 
                     {/* Daftar Surat */}
                     <div className="mt-8 sm:mt-10">
@@ -178,16 +201,6 @@ export default function Index({ letters, letterCount }) {
                                 ))}
                             </div>
                         )}
-                    </div>
-
-                    {/* Quote Box */}
-                    <div className="mt-10 rounded-3xl border border-emerald-200/80 bg-emerald-100/60 p-6 sm:p-10 md:mt-12 md:p-12">
-                        <p className="text-center text-base italic leading-relaxed text-emerald-950 sm:text-xl md:text-2xl">
-                            "Anak kecil di dalam dirimu mungkin masih menunggu seseorang berkata,{" "}
-                            <span className="font-semibold text-emerald-800">
-                                ‘Aku bangga padamu, terima kasih sudah bertahan.’
-                            </span>"
-                        </p>
                     </div>
 
                 </div>

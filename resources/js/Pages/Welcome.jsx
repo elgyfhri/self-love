@@ -41,11 +41,18 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     }
 
                     .glass-card {
-                        background: rgba(255, 255, 255, 0.7);
+                        background: rgba(255, 255, 255, 0.08);
                         backdrop-filter: blur(12px);
                         -webkit-backdrop-filter: blur(12px);
-                        border: 1px solid rgba(255, 255, 255, 0.5);
+                        border: 1px solid rgba(255, 255, 255, 0.14);
                         border-radius: 2rem 1rem 3rem 1.5rem;
+                        box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.7);
+                        transition: background 0.3s ease, border-color 0.3s ease;
+                    }
+
+                    .glass-card:hover {
+                        background: rgba(255, 255, 255, 0.13);
+                        border-color: rgba(110, 231, 183, 0.35);
                     }
                     
                     .custom-path {
@@ -136,7 +143,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             Mobile : judul -> gambar -> deskripsi -> tombol
                             Desktop: judul + deskripsi + tombol di kiri, gambar di kanan
                         */}
-                        <div className="grid grid-cols-1 gap-y-10 relative z-10 lg:grid-cols-12 lg:items-center lg:gap-x-24 lg:gap-y-0">
+                        <div className="grid grid-cols-1 gap-y-14 relative z-10 lg:grid-cols-12 lg:items-center lg:gap-x-24 lg:gap-y-0">
                             {/* Heading */}
                             <div className="relative lg:col-span-7 lg:col-start-1 lg:row-start-1">
                                 <div className="absolute -top-10 -left-10 w-20 h-20 border-t-2 border-l-2 border-brand/20 rounded-tl-3xl"></div>
@@ -165,7 +172,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                             {/* Illustration */}
                             <div className="w-full relative lg:col-span-5 lg:col-start-8 lg:row-span-3 lg:row-start-1 lg:self-center">
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square shape-blob opacity-20 -z-10"></div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[110%] w-[112%] shape-blob opacity-20 -z-10 lg:aspect-square lg:h-auto lg:w-[120%]"></div>
                                 <div className="absolute -top-8 -right-8 w-24 h-24 bg-emerald-100 rounded-full mix-blend-multiply blur-xl animate-pulse"></div>
                                 <div className="absolute -bottom-12 -left-4 w-32 h-32 bg-brand-light/30 rounded-full mix-blend-multiply blur-2xl"></div>
                                 <div className="relative z-10 mx-auto w-full max-w-md bg-white p-3 sm:p-4 rounded-[2.5rem] shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 lg:max-w-none">
@@ -258,7 +265,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 </section>
 
                 {/* About Section */}
-                <section className="relative px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-24" id="about">
+                <section className="relative scroll-mt-32 px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-24" id="about">
                     <div className="mx-auto max-w-7xl">
                         <div className="flex flex-col items-center gap-10 sm:gap-16">
                             <div className="w-full max-w-4xl space-y-6 text-center sm:space-y-8">
@@ -302,7 +309,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                 {/* Features Section */}
                 <section
-                    className="py-32 px-6 lg:px-12 relative bg-emerald-950 text-white overflow-hidden rounded-[3rem] lg:rounded-[5rem] mx-4 lg:mx-8"
+                    className="py-16 px-6 sm:py-24 md:py-32 lg:px-12 relative scroll-mt-32 bg-emerald-950 text-white overflow-hidden rounded-[3rem] lg:rounded-[5rem] mx-4 lg:mx-8"
                     id="features"
                 >
                     <div
@@ -314,27 +321,27 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     ></div>
                     <div className="absolute -top-40 -right-40 w-96 h-96 shape-blob bg-brand opacity-20 blur-3xl"></div>
                     <div className="max-w-7xl mx-auto relative z-10">
-                        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-                            <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight">
+                        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4 sm:mb-16 sm:space-y-6 md:mb-20">
+                            <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">
                                 Dirancang untuk <br />
                                 <span className="text-emerald-300">
                                     Ketenangan Batin
                                 </span>
                             </h2>
-                            <p className="font-sans text-xl text-emerald-100 font-light">
+                            <p className="font-sans text-base text-emerald-100 font-light sm:text-lg md:text-xl">
                                 Alat-alat sederhana namun mendalam yang diukir dengan prinsip psikologis untuk membantumu terhubung kembali.
                             </p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 lg:gap-12">
                             {/* Feature 1 */}
-                            <div className="glass-card p-10 relative group hover:-translate-y-2 transition-transform duration-300">
-                                <div className="absolute -top-8 left-10 w-16 h-16 bg-gradient-to-br from-emerald-300 to-brand rounded-2xl rotate-12 flex items-center justify-center shadow-lg group-hover:rotate-0 transition-transform">
-                                    <span className="material-symbols-outlined text-white text-3xl">
+                            <div className="glass-card relative group p-6 transition-transform duration-300 hover:-translate-y-2 sm:p-8 md:p-10">
+                                <div className="mb-5 flex h-14 w-14 rotate-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300 to-brand shadow-lg transition-transform group-hover:rotate-0 md:absolute md:-top-8 md:left-8 md:mb-0 md:h-16 md:w-16 lg:left-10">
+                                    <span className="material-symbols-outlined text-white text-2xl md:text-3xl">
                                         edit_note
                                     </span>
                                 </div>
-                                <div className="mt-8">
-                                    <h3 className="font-display text-2xl font-bold text-white mb-4">
+                                <div className="md:mt-8">
+                                    <h3 className="font-display text-xl font-bold text-white mb-3 sm:text-2xl sm:mb-4">
                                         Dear Little Me
                                     </h3>
                                     <p className="font-sans text-emerald-50 text-opacity-90 leading-relaxed font-light">
@@ -343,14 +350,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 </div>
                             </div>
                             {/* Feature 2 */}
-                            <div className="glass-card p-10 relative group hover:-translate-y-2 transition-transform duration-300 translate-y-8 lg:translate-y-16">
-                                <div className="absolute -top-8 left-10 w-16 h-16 bg-gradient-to-br from-emerald-300 to-brand rounded-2xl rotate-12 flex items-center justify-center shadow-lg group-hover:rotate-0 transition-transform">
-                                    <span className="material-symbols-outlined text-white text-3xl">
+                            <div className="glass-card relative group p-6 transition-transform duration-300 hover:-translate-y-2 sm:p-8 md:translate-y-8 md:p-10 lg:translate-y-16">
+                                <div className="mb-5 flex h-14 w-14 rotate-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300 to-brand shadow-lg transition-transform group-hover:rotate-0 md:absolute md:-top-8 md:left-8 md:mb-0 md:h-16 md:w-16 lg:left-10">
+                                    <span className="material-symbols-outlined text-white text-2xl md:text-3xl">
                                         menu_book
                                     </span>
                                 </div>
-                                <div className="mt-8">
-                                    <h3 className="font-display text-2xl font-bold text-white mb-4">
+                                <div className="md:mt-8">
+                                    <h3 className="font-display text-xl font-bold text-white mb-3 sm:text-2xl sm:mb-4">
                                         Materi Self-Love
                                     </h3>
                                     <p className="font-sans text-emerald-50 text-opacity-90 leading-relaxed font-light">
@@ -359,14 +366,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 </div>
                             </div>
                             {/* Feature 3 */}
-                            <div className="glass-card p-10 relative group hover:-translate-y-2 transition-transform duration-300">
-                                <div className="absolute -top-8 left-10 w-16 h-16 bg-gradient-to-br from-emerald-300 to-brand rounded-2xl rotate-12 flex items-center justify-center shadow-lg group-hover:rotate-0 transition-transform">
-                                    <span className="material-symbols-outlined text-white text-3xl">
+                            <div className="glass-card relative group p-6 transition-transform duration-300 hover:-translate-y-2 sm:p-8 md:p-10">
+                                <div className="mb-5 flex h-14 w-14 rotate-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300 to-brand shadow-lg transition-transform group-hover:rotate-0 md:absolute md:-top-8 md:left-8 md:mb-0 md:h-16 md:w-16 lg:left-10">
+                                    <span className="material-symbols-outlined text-white text-2xl md:text-3xl">
                                         psychology
                                     </span>
                                 </div>
-                                <div className="mt-8">
-                                    <h3 className="font-display text-2xl font-bold text-white mb-4">
+                                <div className="md:mt-8">
+                                    <h3 className="font-display text-xl font-bold text-white mb-3 sm:text-2xl sm:mb-4">
                                         Asesmen Mandiri
                                     </h3>
                                     <p className="font-sans text-emerald-50 text-opacity-90 leading-relaxed font-light">
