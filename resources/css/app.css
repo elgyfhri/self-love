@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+    .letter-textarea {
+        @apply w-full resize-none bg-transparent border-0 shadow-none ring-0 outline-none;
+    }
+
+    .letter-textarea:focus {
+        @apply border-0 ring-0 shadow-none outline-none;
+    }
+}
+@font-face {
+    font-family: "MyHandwriting";
+    src: url("/fonts/handwriting_belle.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-handwriting {
+    font-family: "MyHandwriting", cursive;
+}
+
+/* ===== Amplop Dear Little Me ===== */
+.envelope-scene {
+    position: relative;
+    width: 320px;
+    height: 240px;
+    perspective: 1200px;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.envelope__body {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: 12px;
+    background: linear-gradient(160deg, #34d399 0%, #10b981 40%, #047857 100%);
+    box-shadow: 0 24px 50px -16px rgb(4 120 87 / 0.45);
+}
+
+.envelope__letter {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 26px;
+    z-index: 3;
+    height: 55%;
+    background: #fffefb;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.22);
+    transform: translateY(0);
+    padding: 14px 16px;
+    overflow: hidden;
+}
+
+.envelope__letter-line {
+    height: 8px;
+    border-radius: 9999px;
+    background: #f3e8d7;
+    margin-top: 8px;
+}
+
+.envelope__letter-line--short {
+    width: 40%;
+}
+
+.envelope__letter-line--long {
+    width: 75%;
+}
+
+.envelope__flap {
+    position: absolute;
+    z-index: 4;
+    background: #047857;
+    backface-visibility: hidden;
+}
+
+.envelope__flap--bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 46%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 25%);
+    background: #059669;
+}
+
+.envelope__flap--left {
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    background: #065f46;
+}
+
+.envelope__flap--right {
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    background: #065f46;
+}
+
+.envelope__flap--top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56%;
+    z-index: 5;
+    clip-path: polygon(0 0, 100% 0, 50% 82%);
+    background: linear-gradient(180deg, #065f46 0%, #064e3b 100%);
+    transform-origin: top center;
+    transform: rotateX(0deg);
+}
+
+/* ==== Animasi ==== */
+.envelope--opening .envelope__flap--top {
+    animation: envelope-flap-open 0.55s ease-in 0s forwards;
+}
+
+.envelope--opening .envelope__letter {
+    animation: envelope-letter-out 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.envelope--closing .envelope__letter {
+    animation: envelope-letter-in 0.55s ease-in 0s forwards;
+}
+
+.envelope--closing .envelope__flap--top {
+    animation: envelope-flap-close 0.6s ease-out 0.55s forwards;
+}
+
+.envelope--open .envelope__flap--top {
+    transform: rotateX(180deg);
+}
+
+.envelope--open .envelope__letter {
+    transform: translateY(-142px);
+}
+
+.envelope--closed .envelope__flap--top {
+    transform: rotateX(0deg);
+}
+
+.envelope--closed .envelope__letter {
+    transform: translateY(0);
+}
+
+@keyframes envelope-flap-open {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
+@keyframes envelope-flap-close {
+    from {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes envelope-letter-out {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-142px);
+    }
+}
+
+@keyframes envelope-letter-in {
+    from {
+        transform: translateY(-142px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.envelope--float {
+    animation: envelope-float 3.2s ease-in-out infinite;
+}
+
+@keyframes envelope-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
