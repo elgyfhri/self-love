@@ -11,7 +11,7 @@ export default function Dashboard({ stats }) {
                     Dashboard
                 </h1>
 
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
 
                     <div className="rounded-2xl bg-white p-6 shadow">
                         <p className="text-gray-500">Users</p>

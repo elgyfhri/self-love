@@ -9,11 +9,21 @@ export default function AdminLayout({ children }) {
         route().current("admin.assessment-types.*") ||
         route().current("admin.assessment-types.*")
     );
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
         <div className="flex min-h-screen bg-gray-100">
+            <button
+                type="button"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="fixed bottom-4 left-4 z-50 rounded-full bg-emerald-700 px-4 py-3 text-sm font-semibold text-white shadow-lg md:hidden"
+            >
+                Menu
+            </button>
+
             {/* Sidebar */}
-            <aside className="w-64 bg-emerald-700 text-white">
+            <aside className={`${isSidebarOpen ? "block" : "hidden"} fixed inset-y-0 left-0 z-40 w-64 bg-emerald-700 text-white md:static md:block md:shrink-0`}>
+
                 <div className="border-b border-emerald-500 p-6">
                     <h1 className="text-2xl font-bold">Self Love</h1>
                     <p className="text-sm text-emerald-200">Admin Panel</p>
@@ -117,7 +127,7 @@ export default function AdminLayout({ children }) {
             {/* Main */}
             <main className="flex-1">
                 {/* Navbar */}
-                <header className="flex items-center justify-between border-b bg-white px-8 py-5">
+                <header className="flex flex-wrap items-center justify-between gap-3 border-b bg-white px-4 py-4 sm:px-8 sm:py-5">
                     <div>
                         <h2 className="text-xl font-semibold">Admin Dashboard</h2>
                     </div>
@@ -139,7 +149,7 @@ export default function AdminLayout({ children }) {
                     </div>
                 </header>
 
-                <div className="p-8">{children}</div>
+                <div className="p-4 sm:p-8">{children}</div>
             </main>
         </div>
     );

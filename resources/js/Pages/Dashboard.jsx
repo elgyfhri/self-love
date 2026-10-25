@@ -11,12 +11,12 @@ export default function Dashboard({ contents }) {
             }
         >
             {/* Hero Section Terkunci (Height Fixed 400px) */}
-            <section className="h-[400px] w-full overflow-hidden bg-gradient-to-b from-emerald-700 via-emerald-600 to-emerald-500 text-white">
-                <div className="mx-auto flex h-full max-w-7xl items-end px-8">
+            <section className="w-full overflow-hidden bg-gradient-to-b from-emerald-700 via-emerald-600 to-emerald-500 text-white">
+                <div className="mx-auto flex min-h-[520px] max-w-7xl flex-col items-center px-4 py-8 sm:px-6 md:min-h-[400px] md:flex-row md:items-end md:px-8 md:py-0">
 
                     {/* Kiri */}
-                    <div className="flex h-full w-1/2 flex-col justify-center pb-8 pt-6">
-                        <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+                    <div className="flex w-full flex-col justify-center pb-4 pt-2 md:h-full md:w-1/2 md:pb-8 md:pt-6">
+                        <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
                             Temukan ruang aman di sini untuk bercerita dan belajar tentang self-love
                         </h1>
 
@@ -35,7 +35,7 @@ export default function Dashboard({ contents }) {
                     </div>
 
                     {/* Kanan */}
-                    <div className="flex h-full w-1/2 items-end justify-end">
+                    <div className="flex w-full items-end justify-end md:h-full md:w-1/2">
                         <div className="relative flex h-full w-full items-end justify-center">
 
                             {/* Ripple */}
@@ -45,7 +45,7 @@ export default function Dashboard({ contents }) {
                             <img
                                 src="/images/hero.png"
                                 alt="Hero"
-                                className="relative z-10 max-h-[360px] w-auto object-contain"
+                                className="relative z-10 max-h-56 w-auto object-contain sm:max-h-72 md:max-h-[360px]"
                             />
                         </div>
                     </div>
@@ -54,9 +54,9 @@ export default function Dashboard({ contents }) {
             </section>
 
             {/* Content Section */}
-            <section className="bg-gray-50 py-20">
-                <div className="mx-auto max-w-7xl px-6">
-                    <h2 className="text-4xl font-bold text-gray-800">
+            <section className="bg-gray-50 py-12 sm:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                    <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
                         Apa Itu Self Love? Mari lihat beberapa materinya
                     </h2>
 
@@ -70,7 +70,7 @@ export default function Dashboard({ contents }) {
 
        <div
     key={item.id}
-    className="group relative flex h-52 overflow-hidden rounded-3xl bg-emerald-600 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+    className="group relative flex min-h-56 overflow-hidden rounded-3xl bg-emerald-600 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
 >
     {item.thumbnail && (
         <img
@@ -84,7 +84,7 @@ export default function Dashboard({ contents }) {
     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
 
     {/* Content */}
-    <div className="relative z-10 flex w-full flex-col justify-between p-8">
+    <div className="relative z-10 flex w-full flex-col justify-between p-5 sm:p-8">
 
         <div>
             <span className="mb-2 inline-flex rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-semibold text-white">
