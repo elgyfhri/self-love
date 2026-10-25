@@ -61,7 +61,7 @@ function StoryShare() {
         URL.revokeObjectURL(link.href);
     };
 
-    return <button id="story-share-button" type="button" onClick={shareStory} className="rounded-xl bg-[#128c5e] px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-[#064e3b]">Bagikan ke Instagram</button>;
+    return <button id="story-share-button" type="button" onClick={shareStory} className="w-full rounded-xl bg-[#128c5e] px-6 py-3.5 font-semibold text-white shadow-lg transition hover:bg-[#064e3b] sm:w-auto sm:px-8 sm:py-4">Bagikan ke Instagram</button>;
 }
 
 const FREQUENCY_WORDS = [
@@ -189,34 +189,34 @@ export default function Result({
         <AssessmentLayout>
             <Head title="Assessment Result" />
 
-            <div className="mx-auto max-w-5xl space-y-8">
+            <div className="mx-auto max-w-5xl space-y-5 sm:space-y-8">
 
                 {/* =====================================================
                     HEADER
                 ===================================================== */}
-                <div className="rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-500 p-10 text-white shadow-xl">
+                <div className="rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-500 p-5 text-white shadow-xl sm:p-8 md:p-10">
 
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-100">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-100 sm:text-sm sm:tracking-[0.2em]">
                         Assessment Result
                     </p>
 
-                    <h1 className="mt-3 text-4xl font-bold">
+                    <h1 className="mt-2 text-2xl font-bold leading-tight sm:mt-3 sm:text-4xl">
                         Assessment Completed 🎉
                     </h1>
 
-                    <p className="mt-3 max-w-2xl text-emerald-50">
+                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-emerald-50 sm:mt-3 sm:text-base">
                         Thank you for completing this assessment.
                         Here is a summary of the result based on your answers.
                     </p>
 
                     {/* Overall Result */}
-                    <div className="mt-8">
+                    <div className="mt-5 sm:mt-8">
 
-                        <p className="text-sm font-semibold uppercase tracking-widest text-emerald-100">
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-100 sm:text-sm">
                             {isDominantTag ? "Dominan Anda" : "Hasil Akhir"}
                         </p>
 
-                        <h2 className="mt-2 text-5xl font-extrabold capitalize">
+                        <h2 className="mt-1.5 break-words text-3xl font-extrabold capitalize leading-tight sm:mt-2 sm:text-4xl md:text-5xl">
                             {overallResult ?? "Belum Tersedia"}
                         </h2>
 
@@ -232,42 +232,42 @@ export default function Result({
 
                     <div className="overflow-hidden rounded-3xl bg-white shadow">
 
-                        <div className="border-b border-gray-100 px-8 py-6">
+                        <div className="border-b border-gray-100 px-5 py-5 sm:px-8 sm:py-6">
 
-                            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
+                            <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-600 sm:text-sm">
                                 Your Dominant Result
                             </p>
 
-                            <h2 className="mt-2 text-2xl font-bold text-gray-800">
+                            <h2 className="mt-2 text-lg font-bold text-gray-800 sm:text-2xl">
                                 The result that appeared most frequently
                             </h2>
 
-                            <p className="mt-2 text-gray-500">
+                            <p className="mt-2 text-sm text-gray-500 sm:text-base">
                                 Based on your answers, the following trait or
                                 category received the highest number of responses.
                             </p>
 
                         </div>
 
-                        <div className="p-8">
+                        <div className="p-5 sm:p-8">
 
-                            <div className="rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 p-8 text-center">
+                            <div className="rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 p-5 text-center sm:p-8">
 
-                                <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
+                                <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-600 sm:text-sm">
                                     Dominant Tag
                                 </p>
 
-                                <h3 className="mt-4 text-5xl font-extrabold capitalize text-gray-800">
+                                <h3 className="mt-3 break-words text-3xl font-extrabold capitalize leading-tight text-gray-800 sm:mt-4 sm:text-5xl">
                                     {dominantResult.value ?? dominantResult.level}
                                 </h3>
 
-                                <div className="mx-auto mt-6 h-px max-w-xs bg-emerald-200" />
+                                <div className="mx-auto mt-5 h-px max-w-xs bg-emerald-200 sm:mt-6" />
 
-                                <p className="mt-6 text-gray-600">
+                                <p className="mt-5 text-sm text-gray-600 sm:mt-6 sm:text-base">
                                     Trait ini muncul
                                 </p>
 
-                                <p className="mt-1 text-3xl font-bold text-emerald-600">
+                                <p className="mt-1 text-2xl font-bold text-emerald-600 sm:text-3xl">
                                     {frequencyWord(dominantResult.score)}
                                 </p>
 
@@ -288,16 +288,16 @@ export default function Result({
                     DISCLAIMER SCREENING
                 ===================================================== */}
                 {isScreeningRange && (
-                    <div className="rounded-3xl border border-amber-200 bg-amber-50 p-8 shadow">
-                        <p className="text-sm font-semibold uppercase tracking-widest text-amber-700">
+                    <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 shadow sm:p-8">
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-amber-700 sm:text-sm">
                             Penting untuk Dibaca
                         </p>
 
-                        <h2 className="mt-2 text-2xl font-bold text-amber-900">
+                        <h2 className="mt-2 text-lg font-bold text-amber-900 sm:text-2xl">
                             Ini bukan diagnosis
                         </h2>
 
-                        <p className="mt-3 leading-relaxed text-amber-900">
+                        <p className="mt-3 text-sm leading-relaxed text-amber-900 sm:text-base">
                             Hasil di atas berasal dari instrumen screening
                             yang disusun untuk aplikasi ini. Instrumen ini
                             tidak punya validasi psikometrik, tidak punya
@@ -306,14 +306,14 @@ export default function Result({
                             profesional kesehatan mental.
                         </p>
 
-                        <p className="mt-3 leading-relaxed text-amber-900">
+                        <p className="mt-3 text-sm leading-relaxed text-amber-900 sm:text-base">
                             Nama kondisi yang muncul di catatan pola
                             adalah kemungkinan berdasarkan pola jawaban,
                             bukan diagnosis. Jangan gunakan hasil ini
                             sebagai dasar keputusan klinis.
                         </p>
 
-                        <p className="mt-3 leading-relaxed text-amber-900">
+                        <p className="mt-3 text-sm leading-relaxed text-amber-900 sm:text-base">
                             Kalau hasil ini membuatmu bingung, atau kalau
                             kamu sedang merasa kosong, sulit berfungsi
                             sehari-hari, atau tergoda untuk menyakiti
@@ -330,19 +330,19 @@ export default function Result({
                 ===================================================== */}
                 {isRangeLike && (
 
-                    <div className="rounded-3xl bg-white p-8 shadow">
+                    <div className="rounded-3xl bg-white p-5 shadow sm:p-8">
 
-                        <div className="mb-8">
+                        <div className="mb-6 sm:mb-8">
 
-                            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
+                            <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-600 sm:text-sm">
                                 Your Profile
                             </p>
 
-                            <h2 className="mt-2 text-2xl font-bold text-gray-800">
+                            <h2 className="mt-2 text-lg font-bold text-gray-800 sm:text-2xl">
                                 Your Result by Category
                             </h2>
 
-                            <p className="mt-2 text-gray-500">
+                            <p className="mt-2 text-sm text-gray-500 sm:text-base">
                                 Setiap kategori menunjukkan aspek berbeda
                                 yang diukur oleh assessment ini.
                             </p>
@@ -350,45 +350,41 @@ export default function Result({
                         </div>
 
 
-                        <div className="space-y-5">
+                        <div className="space-y-3 sm:space-y-5">
 
                             {assessment.results?.map((result) => (
 
                                 <div
                                     key={result.id}
-                                    className="rounded-2xl border border-gray-100 bg-slate-50/50 p-6 transition hover:border-emerald-200 hover:shadow-sm"
+                                    className="rounded-2xl border border-gray-100 bg-slate-50/50 p-4 transition hover:border-emerald-200 hover:shadow-sm sm:p-6"
                                 >
 
-                                    <div className="flex items-center justify-between gap-6">
+                                    <div className="grid gap-x-6 gap-y-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-y-0">
 
                                         <div className="min-w-0">
 
-                                            <h3 className="text-lg font-semibold text-gray-800">
+                                            <h3 className="break-words text-base font-semibold leading-snug text-gray-800 sm:text-lg">
                                                 {result.category?.label ?? "Category"}
                                             </h3>
 
-                                            <p className="mt-1 text-sm text-gray-500">
+                                            <p className="mt-1 hidden text-sm text-gray-500 sm:block">
                                                 Tingkat kategori ini:
                                             </p>
 
-                                            {result.recommendation && (
-                                                <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
-                                                    <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">
-                                                        Catatan pola
-                                                    </p>
-
-                                                    <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-amber-900">
-                                                        {result.recommendation}
-                                                    </p>
-                                                </div>
-                                            )}
+                                            <p className="mt-2 break-words text-sm leading-relaxed text-gray-500 sm:hidden">
+                                                Tingkat kategori ini:{" "}
+                                                <span className="font-bold text-emerald-600">
+                                                    {result.level_label ??
+                                                        "Belum Tersedia"}
+                                                </span>
+                                            </p>
 
                                         </div>
 
 
-                                        <div className="shrink-0 text-right">
+                                        <div className="hidden shrink-0 sm:block sm:text-right">
 
-                                            <p className="text-2xl font-extrabold text-emerald-600">
+                                            <p className="break-words text-2xl font-extrabold leading-snug text-emerald-600">
                                                 {result.level_label ??
                                                     "Belum Tersedia"}
                                             </p>
@@ -398,6 +394,19 @@ export default function Result({
                                             </p>
 
                                         </div>
+
+
+                                        {result.recommendation && (
+                                            <div className="mt-2 rounded-xl border border-amber-200 bg-amber-50 p-3.5 sm:col-span-2 sm:mt-4 sm:p-4">
+                                                <p className="text-[11px] font-semibold uppercase tracking-wide text-amber-700 sm:text-xs">
+                                                    Catatan pola
+                                                </p>
+
+                                                <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-amber-900">
+                                                    {result.recommendation}
+                                                </p>
+                                            </div>
+                                        )}
 
                                     </div>
 
@@ -417,13 +426,13 @@ export default function Result({
                 ===================================================== */}
                 {!isDominantTag && !isRangeLike && (
 
-                    <div className="rounded-3xl bg-white p-8 shadow">
+                    <div className="rounded-3xl bg-white p-5 shadow sm:p-8">
 
-                        <h2 className="text-2xl font-bold text-gray-800">
+                        <h2 className="text-lg font-bold text-gray-800 sm:text-2xl">
                             Assessment Result
                         </h2>
 
-                        <p className="mt-2 text-gray-500">
+                        <p className="mt-2 text-sm text-gray-500 sm:text-base">
                             Your assessment has been completed successfully.
                         </p>
 
@@ -435,19 +444,19 @@ export default function Result({
                 {/* =====================================================
                     RECOMMENDATION
                 ===================================================== */}
-                <div className="rounded-3xl bg-white p-8 shadow">
+                <div className="rounded-3xl bg-white p-5 shadow sm:p-8">
 
-                    <div className="mb-8">
+                    <div className="mb-6 sm:mb-8">
 
-                        <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-600 sm:text-sm">
                             Learning Center
                         </p>
 
-                        <h2 className="mt-2 text-2xl font-bold text-gray-800">
+                        <h2 className="mt-2 text-lg font-bold text-gray-800 sm:text-2xl">
                             Recommended Learning
                         </h2>
 
-                        <p className="mt-2 text-gray-500">
+                        <p className="mt-2 text-sm text-gray-500 sm:text-base">
                             Explore these learning materials to better
                             understand and develop yourself based on your
                             assessment results.
@@ -458,9 +467,9 @@ export default function Result({
 
                     {recommendations.length === 0 ? (
 
-                        <div className="rounded-2xl bg-slate-50 p-6 text-center">
+                        <div className="rounded-2xl bg-slate-50 p-5 text-center sm:p-6">
 
-                            <p className="text-gray-500">
+                            <p className="text-sm text-gray-500 sm:text-base">
                                 No recommendation available yet.
                             </p>
 
@@ -468,25 +477,25 @@ export default function Result({
 
                     ) : (
 
-                        <div className="grid gap-5 md:grid-cols-2">
+                        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
 
                             {recommendations.map((item) => (
 
                                 <Link
                                     key={item.id}
                                     href={route("learning.show", item.slug)}
-                                    className="group flex flex-col rounded-2xl border border-gray-100 bg-slate-50/50 p-5 transition hover:border-emerald-200 hover:shadow-sm"
+                                    className="group flex flex-col rounded-2xl border border-gray-100 bg-slate-50/50 p-4 transition hover:border-emerald-200 hover:shadow-sm sm:p-5"
                                 >
 
-                                    <span className="mb-3 inline-flex self-start rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                                    <span className="mb-3 inline-flex self-start rounded-full bg-emerald-100 px-3 py-1 text-[11px] font-semibold text-emerald-700 sm:text-xs">
                                         {getCategoryLabel(item)}
                                     </span>
 
-                                    <p className="text-xs font-bold uppercase tracking-wide text-emerald-600">
+                                    <p className="text-[11px] font-bold uppercase tracking-wide text-emerald-600 sm:text-xs">
                                         {item.type}
                                     </p>
 
-                                    <h3 className="mt-2 text-xl font-semibold text-gray-800 transition group-hover:text-emerald-700">
+                                    <h3 className="mt-2 break-words text-lg font-semibold leading-snug text-gray-800 transition group-hover:text-emerald-700 sm:text-xl">
                                         {item.title}
                                     </h3>
 
@@ -536,20 +545,20 @@ export default function Result({
                 {/* =====================================================
                     BACK BUTTONS
                 ===================================================== */}
-                <div className="flex flex-wrap justify-center gap-3 pb-8">
+                <div className="flex flex-col gap-3 pb-6 sm:flex-row sm:flex-wrap sm:justify-center sm:pb-8">
 
                     <StoryShare />
 
                     <Link
                         href={route("assessments.history")}
-                        className="rounded-xl bg-white px-8 py-4 font-semibold text-gray-700 shadow transition hover:bg-gray-50"
+                        className="w-full rounded-xl bg-white px-6 py-3.5 text-center font-semibold text-gray-700 shadow transition hover:bg-gray-50 sm:w-auto sm:px-8 sm:py-4"
                     >
                         Lihat Riwayat
                     </Link>
 
                     <Link
                         href="/dashboard"
-                        className="rounded-xl bg-emerald-600 px-8 py-4 font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all hover:bg-emerald-700 hover:shadow-emerald-600/30 active:scale-[0.98]"
+                        className="w-full rounded-xl bg-emerald-600 px-6 py-3.5 text-center font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all hover:bg-emerald-700 hover:shadow-emerald-600/30 active:scale-[0.98] sm:w-auto sm:px-8 sm:py-4"
                     >
                         Kembali ke Beranda
                     </Link>
