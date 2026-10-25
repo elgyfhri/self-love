@@ -4,7 +4,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
-            <Head title="KindSpace - Temukan Ruang Aman untuk Mencintai Dirimu Sendiri">
+            <Head title="Self-Love - Temukan Ruang Aman untuk Mencintai Dirimu Sendiri">
                 <link
                     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
                     rel="stylesheet"
@@ -132,9 +132,13 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     <div className="absolute top-20 right-[-10%] w-[600px] h-[600px] bg-organic-1 bg-contain bg-no-repeat opacity-50 -z-10"></div>
                     <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] shape-blob-light opacity-60 -z-10"></div>
                     <div className="max-w-7xl mx-auto">
-                        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
-                            {/* Left Content */}
-                            <div className="w-full lg:w-7/12 space-y-8 relative">
+                        {/*
+                            Mobile : judul -> gambar -> deskripsi -> tombol
+                            Desktop: judul + deskripsi + tombol di kiri, gambar di kanan
+                        */}
+                        <div className="grid grid-cols-1 gap-y-10 relative z-10 lg:grid-cols-12 lg:items-center lg:gap-x-24 lg:gap-y-0">
+                            {/* Heading */}
+                            <div className="relative lg:col-span-7 lg:col-start-1 lg:row-start-1">
                                 <div className="absolute -top-10 -left-10 w-20 h-20 border-t-2 border-l-2 border-brand/20 rounded-tl-3xl"></div>
                                 <h1 className="font-display text-5xl md:text-7xl font-extrabold leading-[1.1] text-slate-900 tracking-tight">
                                     Mari Belajar <br />
@@ -157,38 +161,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <br />
                                     Diri Sendiri
                                 </h1>
-                                <p className="font-sans text-xl md:text-2xl text-slate-600 font-light max-w-lg leading-relaxed">
-                                    Perjalanan mencintai diri sendiri dimulai dari sini. Sebuah tempat mempelajari diri sendiri, tempat untuk merefleksikan dan merayakan keberadaanmu.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-6 pt-6 items-start">
-                                    <Link
-                                        href={route('register')}
-                                        className="bg-brand text-white font-semibold text-lg px-10 py-4 rounded-2xl hover:bg-brand-dark transition-all shadow-[0_10px_40px_-10px_rgba(18,140,94,0.7)] flex items-center gap-3 group"
-                                    >
-                                        Mulai Perjalanan
-                                        <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                                            arrow_right_alt
-                                        </span>
-                                    </Link>
-                                    <a
-                                        className="flex items-center gap-3 text-slate-700 font-medium px-6 py-4 rounded-2xl hover:bg-emerald-50 transition-colors"
-                                        href="#about"
-                                    >
-                                        <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-brand">
-                                            <span className="material-symbols-outlined text-sm">
-                                                play_arrow
-                                            </span>
-                                        </div>
-                                        Lihat Panduan
-                                    </a>
-                                </div>
                             </div>
-                            {/* Right Content */}
-                            <div className="w-full lg:w-5/12 relative">
+
+                            {/* Illustration */}
+                            <div className="w-full relative lg:col-span-5 lg:col-start-8 lg:row-span-3 lg:row-start-1 lg:self-center">
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square shape-blob opacity-20 -z-10"></div>
                                 <div className="absolute -top-8 -right-8 w-24 h-24 bg-emerald-100 rounded-full mix-blend-multiply blur-xl animate-pulse"></div>
                                 <div className="absolute -bottom-12 -left-4 w-32 h-32 bg-brand-light/30 rounded-full mix-blend-multiply blur-2xl"></div>
-                                <div className="relative z-10 bg-white p-4 rounded-[2.5rem] shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+                                <div className="relative z-10 mx-auto w-full max-w-md bg-white p-3 sm:p-4 rounded-[2.5rem] shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 lg:max-w-none">
                                     <img
                                         className="w-full h-auto object-cover rounded-[2rem]"
                                         alt="A minimal illustration of a person gently hugging themselves with a soft smile"
@@ -196,7 +176,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     />
                                     {/* Floating element */}
                                     <div
-                                        className="absolute -left-12 top-20 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce"
+                                        className="absolute -left-4 top-16 sm:-left-12 sm:top-20 bg-white/90 backdrop-blur-sm p-3 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3 sm:gap-4 animate-bounce"
                                         style={{ animationDuration: '3s' }}
                                     >
                                         <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-brand">
@@ -210,6 +190,50 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Description */}
+                            <p className="font-sans text-xl md:text-2xl text-slate-600 font-light max-w-lg leading-relaxed lg:col-span-7 lg:col-start-1 lg:row-start-2 lg:mt-8">
+                                Perjalanan mencintai diri sendiri dimulai dari sini. Sebuah tempat mempelajari diri sendiri, tempat untuk merefleksikan dan merayakan keberadaanmu.
+                            </p>
+
+                            {/* Call to Action */}
+                            <div className="flex flex-col sm:flex-row gap-6 items-start lg:col-span-7 lg:col-start-1 lg:row-start-3 lg:mt-8">
+                                <Link
+                                    href={route('register')}
+                                    className="bg-brand text-white font-semibold text-lg px-10 py-4 rounded-2xl hover:bg-brand-dark transition-all shadow-[0_10px_40px_-10px_rgba(18,140,94,0.7)] inline-flex items-center justify-center gap-3 whitespace-nowrap group"
+                                >
+                                    Mulai Perjalanan
+                                    <svg
+                                        className="h-6 w-6 shrink-0 transition-transform group-hover:translate-x-1"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M4 12h16" />
+                                        <path d="M14 6l6 6-6 6" />
+                                    </svg>
+                                </Link>
+                                <a
+                                    className="flex items-center gap-3 text-slate-700 font-medium px-6 py-4 rounded-2xl hover:bg-emerald-50 transition-colors whitespace-nowrap"
+                                    href="#about"
+                                >
+                                    <div className="w-10 h-10 shrink-0 rounded-full bg-white shadow-sm flex items-center justify-center text-brand">
+                                        <svg
+                                            className="h-4 w-4"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                    Lihat Panduan
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -465,7 +489,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         </span>
                                     </div>
                                     <span className="font-display text-xl font-bold text-slate-900">
-                                        KindSpace
+                                        Self-Love
                                     </span>
                                 </div>
                                 <p className="text-slate-500 font-light max-w-sm">
@@ -537,7 +561,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                         <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                             <p className="font-sans text-sm text-slate-400">
-                                © {new Date().getFullYear()} KindSpace. Nurturing your inner light.
+                                © {new Date().getFullYear()} Self-Love. Nurturing your inner light.
                             </p>
                             <div className="flex gap-4">
                                 <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-brand hover:bg-emerald-50 cursor-pointer transition-colors"></div>
