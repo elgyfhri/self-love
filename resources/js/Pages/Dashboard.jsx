@@ -1,7 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AssessmentCard from '@/Components/Assessment/AssessmentCard';
 import { Head, Link } from '@inertiajs/react';
 
-export default function Dashboard({ contents }) {
+export default function Dashboard({ contents = [], assessments = [] }) {
     return (
         <AuthenticatedLayout
             header={
@@ -72,13 +73,24 @@ export default function Dashboard({ contents }) {
             {/* Content Section */}
             <section className="bg-gray-50 py-12 sm:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                    <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
-                        Apa Itu Self Love? Mari lihat beberapa materinya
-                    </h2>
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
+                                Apa Itu Self Love? Mari lihat beberapa materinya
+                            </h2>
 
-                    <p className="mt-3 text-gray-500">
-                        Jelajahi materi yang berhubungan dengan self love
-                    </p>
+                            <p className="mt-3 text-gray-500">
+                                Jelajahi materi yang berhubungan dengan self love
+                            </p>
+                        </div>
+
+                        <Link
+                            href={route('learning.index')}
+                            className="inline-flex w-fit items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow transition hover:bg-emerald-700"
+                        >
+                            Lihat Semua Modul
+                        </Link>
+                    </div>
 
                     <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
 
@@ -132,6 +144,40 @@ export default function Dashboard({ contents }) {
     ))}
 
 </div>
+                </div>
+            </section>
+
+            {/* Assessment Section */}
+            <section className="border-t border-gray-100 bg-white py-12 sm:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
+                                Kenali Dirimu Lebih Dalam
+                            </h2>
+                            <p className="mt-3 text-gray-500">
+                                Ikuti assessment untuk memahami kondisi dan kebutuhan dirimu.
+                            </p>
+                        </div>
+
+                        <Link
+                            href={route('assessments.index')}
+                            className="inline-flex w-fit rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow transition hover:bg-emerald-700"
+                        >
+                            Lihat Semua Assessment
+                        </Link>
+                    </div>
+
+                    {assessments.length > 0 && (
+                        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            {assessments.map((assessment) => (
+                                <AssessmentCard
+                                    key={assessment.id}
+                                    assessment={assessment}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </AuthenticatedLayout>

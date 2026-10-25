@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\Assessment\QuestionController;
 use App\Http\Controllers\Admin\Assessment\QuestionOptionController;
 use App\Http\Controllers\Admin\Assessment\ContentController;
 use App\Http\Controllers\LearningController;
+use App\Models\AssessmentType;
 use App\Models\Content;
 
 
@@ -81,14 +82,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard
     Route::get('/dashboard', function () {
 
-    $contents = Content::whereNull('assessment_type_id')
-    ->whereNull('category_id')
+    $contents = Content::with(['assessmentType', 'category'])
     ->where('status', 'published')
     ->latest()
+    ->take(4)
+    ->get();
+
+    $assessments = AssessmentType::with('categories')
+    ->where('status', 'published')
+    ->orderBy('name')
     ->get();
 
     return Inertia::render('Dashboard', [
         'contents' => $contents,
+        'assessments' => $assessments,
     ]);
 
 })->name('dashboard');
