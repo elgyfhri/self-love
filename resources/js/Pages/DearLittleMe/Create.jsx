@@ -68,16 +68,16 @@ export default function Create() {
 
             <section
                 className={
-                    "min-h-screen bg-gradient-to-b from-violet-50 via-white to-indigo-50 py-16 transition-all duration-700 " +
+                    "min-h-screen bg-gradient-to-b from-violet-50 via-white to-indigo-50 py-10 transition-all duration-700 sm:py-14 lg:py-16 " +
                     (introState === "show"
                         ? "opacity-0 translate-y-6"
                         : "opacity-100 translate-y-0")
                 }
             >
 
-                <div className="mx-auto max-w-4xl px-6">
+                <div className="mx-auto max-w-4xl px-4 sm:px-6">
 
-                    <div className="mb-8">
+                    <div className="mb-6 sm:mb-8">
                         <Link
                             href={route("letter.index")}
                             className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-violet-700"
@@ -95,11 +95,11 @@ export default function Create() {
                             Dear Little Me
                         </span>
 
-                        <h1 className="mt-6 text-4xl font-bold text-gray-900">
+                        <h1 className="mt-5 text-2xl font-bold text-gray-900 sm:mt-6 sm:text-3xl md:text-4xl">
                             Tulis Surat untuk Dirimu Saat Kecil
                         </h1>
 
-                        <p className="mx-auto mt-5 max-w-2xl text-gray-600 leading-8">
+                        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-600 sm:mt-5 sm:text-base sm:leading-8">
                             Tidak ada format yang benar ataupun salah.
                             Tuliskan apa yang ingin kamu sampaikan kepada
                             dirimu saat kecil dengan jujur dan penuh kasih.
@@ -110,7 +110,7 @@ export default function Create() {
                     {/* Letter */}
 
                     <form onSubmit={handleSubmit}>
-                       <div className="mx-auto mt-14 max-w-3xl rounded-md border border-stone-200 bg-[#fffdf8] px-16 py-14 shadow-2xl">
+                       <div className="mx-auto mt-10 max-w-3xl rounded-md border border-stone-200 bg-[#fffdf8] px-5 py-8 shadow-2xl sm:mt-14 sm:px-10 sm:py-12 md:px-16 md:py-14">
 
                     {/* Tanggal */}
 
@@ -127,7 +127,7 @@ export default function Create() {
                         value={data.title}
                         onChange={(e) => setData("title", e.target.value)}
                         placeholder="Judul suratmu…"
-                        className="mt-8 w-full border-0 border-b border-stone-300 bg-transparent pb-2 font-handwriting text-3xl text-gray-800 outline-none placeholder:text-gray-300 focus:border-violet-400 focus:ring-0"
+                        className="mt-8 w-full border-0 border-b border-stone-300 bg-transparent pb-2 font-handwriting text-2xl text-gray-800 outline-none placeholder:text-gray-300 focus:border-violet-400 focus:ring-0 sm:text-3xl"
                     />
                     {errors.title && (
                         <p className="mt-2 text-sm text-red-500">
@@ -151,7 +151,7 @@ export default function Create() {
                             value={data.letter}
                             onChange={(e) => setData("letter", e.target.value)}
                             placeholder="Tulis pesanmu di sini…"
-                            className="font-handwriting text-2xl leading-10 letter-textarea placeholder:text-gray-300"
+                            className="font-handwriting text-xl leading-10 letter-textarea placeholder:text-gray-300 sm:text-2xl"
                         />
                     </div>
                     {errors.letter && (
@@ -178,11 +178,11 @@ export default function Create() {
 
                 {/* Footer */}
 
-                <div className="mx-auto mt-8 flex max-w-3xl items-center justify-between">
+                <div className="mx-auto mt-6 flex max-w-3xl flex-col gap-4 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
 
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2 text-xs text-gray-500 sm:text-sm">
 
-                        <LockClosedIcon className="h-5 w-5"/>
+                        <LockClosedIcon className="h-5 w-5 shrink-0"/>
 
                         <span>Surat ini hanya dapat dibaca olehmu.</span>
 
@@ -191,7 +191,7 @@ export default function Create() {
                     <button
                         type="submit"
                         disabled={processing || saving}
-                        className="rounded-xl bg-violet-600 px-8 py-3 font-semibold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="w-full rounded-xl bg-violet-600 px-8 py-3 font-semibold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                     >
                         {processing ? "Menyimpan…" : "Simpan Surat"}
                     </button>

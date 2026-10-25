@@ -57,16 +57,16 @@ export default function Show({ letter }) {
 
             <section
                 className={
-                    "min-h-screen bg-gradient-to-b from-violet-50 via-white to-indigo-50 py-16 transition-all duration-700 " +
+                    "min-h-screen bg-gradient-to-b from-violet-50 via-white to-indigo-50 py-10 transition-all duration-700 sm:py-14 lg:py-16 " +
                     (introState === "show"
                         ? "opacity-0 translate-y-6"
                         : "opacity-100 translate-y-0")
                 }
             >
 
-                <div className="mx-auto max-w-4xl px-6">
+                <div className="mx-auto max-w-4xl px-4 sm:px-6">
 
-                    <div className="mb-8">
+                    <div className="mb-6 sm:mb-8">
                         <Link
                             href={route("letter.index")}
                             className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-violet-700"
@@ -76,7 +76,7 @@ export default function Show({ letter }) {
                         </Link>
                     </div>
 
-                    <div className="mx-auto max-w-3xl rounded-md border border-stone-200 bg-[#fffdf8] px-16 py-14 shadow-2xl">
+                    <div className="mx-auto max-w-3xl rounded-md border border-stone-200 bg-[#fffdf8] px-5 py-8 shadow-2xl sm:px-10 sm:py-12 md:px-16 md:py-14">
 
                         {/* Tanggal */}
                         <div className="flex items-center justify-between">
@@ -86,7 +86,7 @@ export default function Show({ letter }) {
                         </div>
 
                         {/* Judul */}
-                        <h1 className="mt-8 text-center text-3xl font-handwriting text-gray-900">
+                        <h1 className="mt-8 break-words text-center text-2xl font-handwriting text-gray-900 sm:text-3xl">
                             {letter.title}
                         </h1>
 
@@ -100,7 +100,7 @@ export default function Show({ letter }) {
                                 backgroundPosition: "0 55px",
                             }}
                         >
-                            <div className="whitespace-pre-wrap font-handwriting text-2xl leading-10 text-gray-700">
+                            <div className="whitespace-pre-wrap break-words font-handwriting text-xl leading-10 text-gray-700 sm:text-2xl">
                                 {letter.letter}
                             </div>
                         </div>
@@ -118,11 +118,11 @@ export default function Show({ letter }) {
                     </div>
 
                     {/* Aksi */}
-                    <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3">
+                    <div className="mx-auto mt-6 flex max-w-3xl items-center justify-center gap-3 sm:mt-8">
 
                         <button
                             onClick={handleDelete}
-                            className="inline-flex items-center gap-2 rounded-xl bg-red-500 px-6 py-3 font-semibold text-white transition hover:bg-red-600"
+                            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-red-500 px-6 py-3 font-semibold text-white transition hover:bg-red-600 sm:w-auto"
                         >
                             <TrashIcon className="h-5 w-5" />
                             Hapus

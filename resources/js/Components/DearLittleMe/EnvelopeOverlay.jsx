@@ -11,7 +11,7 @@ export default function EnvelopeOverlay({ variant, caption, exiting = false }) {
             <EnvelopeAnimation variant={variant} float />
 
             {caption && (
-                <p className="mt-10 text-lg font-semibold text-violet-700">
+                <p className="mt-8 px-6 text-center text-base font-semibold text-violet-700 sm:mt-10 sm:text-lg">
                     {caption}
                 </p>
             )}

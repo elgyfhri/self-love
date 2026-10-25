@@ -33,40 +33,40 @@ export default function Index({ letters, letterCount }) {
         >
             <Head title="Dear Little Me" />
 
-            {/* Hero Section Terkunci (Height Fixed 400px - Gambar di Kiri) */}
-            <section className="h-[400px] w-full overflow-hidden bg-gradient-to-b from-emerald-700 via-emerald-600 to-emerald-500 text-white">
-                <div className="mr-auto flex h-full max-w-6xl items-end pl-8 pr-8 md:pl-10">
+            {/* Hero Section */}
+            <section className="w-full overflow-hidden bg-gradient-to-b from-emerald-700 via-emerald-600 to-emerald-500 text-white">
+                <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 py-10 sm:px-8 md:h-[400px] md:flex-row md:items-end md:gap-0 md:py-0 md:pl-10 md:pr-8">
 
-                    {/* Kiri - Gambar Hero */}
-                    <div className="flex h-full w-1/2 items-end justify-end pr-6">
-                        <div className="relative flex h-full w-full items-end justify-end">
+                    {/* Gambar Hero */}
+                    <div className="order-2 flex w-full justify-center md:order-1 md:h-full md:w-1/2 md:items-end md:justify-end md:pr-6">
+                        <div className="relative flex w-full items-end justify-center md:h-full md:justify-end">
 
                             {/* Ripple */}
-                            <div className="absolute bottom-10 right-6 h-48 w-48 rounded-full bg-white/10 animate-ping"></div>
+                            <div className="absolute bottom-4 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full bg-white/10 animate-ping sm:h-36 sm:w-36 md:bottom-10 md:left-auto md:right-6 md:h-48 md:w-48 md:translate-x-0"></div>
 
                             {/* Gambar - Dibatasi tinggi maks agar section tidak membesar */}
                             <img
                                 src="/images/little-me.png"
                                 alt="Dear Little Me"
-                                className="relative z-10 max-h-[360px] w-auto object-contain"
+                                className="relative z-10 max-h-48 w-auto object-contain sm:max-h-60 md:max-h-[360px]"
                             />
                         </div>
                     </div>
 
-                    {/* Kanan - Konten Teks */}
-                    <div className="flex h-full w-1/2 flex-col justify-center pb-8 pt-6 pl-4">
-                        <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+                    {/* Konten Teks */}
+                    <div className="contents md:order-2 md:flex md:h-full md:w-1/2 md:flex-col md:justify-center md:pb-8 md:pt-6 md:pl-4">
+                        <h1 className="order-1 text-center text-2xl font-bold leading-tight text-white sm:text-3xl md:text-left md:text-5xl">
                             Tulis Pesan untuk Dirimu Saat Kecil
                         </h1>
 
-                        <p className="mt-4 text-base text-green-100">
+                        <p className="order-3 mt-3 text-center text-sm text-green-100 sm:text-base md:mt-4 md:text-left">
                             Temukan ruang aman untuk bercerita, menyapa kenangan, dan belajar tentang <em className="not-italic font-semibold text-white">self-love</em>.
                         </p>
 
-                        <div className="mt-6">
+                        <div className="order-4 mt-5 flex justify-center md:mt-6 md:justify-start">
                             <Link
                                 href={route("letter.create")}
-                                className="inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-green-700 transition hover:bg-green-50"
+                                className="inline-flex w-full justify-center rounded-lg bg-white px-6 py-3 font-semibold text-green-700 transition hover:bg-green-50 sm:w-auto"
                             >
                                 Mulai Menulis
                             </Link>
@@ -77,22 +77,22 @@ export default function Index({ letters, letterCount }) {
             </section>
 
             {/* Section Surat Saya */}
-            <section className="bg-gray-50 py-20">
-                <div className="mx-auto max-w-7xl px-6 md:px-8">
+            <section className="bg-gray-50 py-12 sm:py-16 lg:py-20">
+                <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
 
-                    <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:flex-wrap sm:items-center">
                         <div>
-                            <h2 className="text-4xl font-bold text-gray-800">
+                            <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
                                 Suratku
                             </h2>
-                            <p className="mt-3 text-gray-500">
+                            <p className="mt-3 text-sm text-gray-500 sm:text-base">
                                 Kenangan indah yang kamu tulis untuk dirimu yang lebih muda.
                             </p>
                         </div>
 
                         <Link
                             href={route("letter.create")}
-                            className="inline-flex rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white shadow transition hover:bg-emerald-700"
+                            className="inline-flex w-full justify-center rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white shadow transition hover:bg-emerald-700 sm:w-auto"
                         >
                             + Surat Baru
                         </Link>
@@ -111,9 +111,9 @@ export default function Index({ letters, letterCount }) {
                     )}
 
                     {/* Daftar Surat */}
-                    <div className="mt-10">
+                    <div className="mt-8 sm:mt-10">
                         {letters.length === 0 ? (
-                            <div className="rounded-3xl bg-white px-8 py-16 text-center shadow-lg">
+                            <div className="rounded-3xl bg-white px-5 py-12 text-center shadow-lg sm:px-8 sm:py-16">
                                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50">
                                     <EnvelopeIcon className="h-10 w-10 text-emerald-500" />
                                 </div>
@@ -127,7 +127,7 @@ export default function Index({ letters, letterCount }) {
                                 </p>
                                 <Link
                                     href={route("letter.create")}
-                                    className="mt-8 inline-flex rounded-xl bg-emerald-600 px-8 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-emerald-700"
+                                    className="mt-8 inline-flex w-full justify-center rounded-xl bg-emerald-600 px-8 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-emerald-700 sm:w-auto"
                                 >
                                     Tulis Surat Pertamaku
                                 </Link>
@@ -181,8 +181,8 @@ export default function Index({ letters, letterCount }) {
                     </div>
 
                     {/* Quote Box */}
-                    <div className="mt-12 rounded-3xl bg-emerald-100/60 p-10 border border-emerald-200/80 md:p-12">
-                        <p className="text-center text-xl italic leading-relaxed text-emerald-950 md:text-2xl">
+                    <div className="mt-10 rounded-3xl border border-emerald-200/80 bg-emerald-100/60 p-6 sm:p-10 md:mt-12 md:p-12">
+                        <p className="text-center text-base italic leading-relaxed text-emerald-950 sm:text-xl md:text-2xl">
                             "Anak kecil di dalam dirimu mungkin masih menunggu seseorang berkata,{" "}
                             <span className="font-semibold text-emerald-800">
                                 ‘Aku bangga padamu, terima kasih sudah bertahan.’

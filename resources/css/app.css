@@ -24,8 +24,9 @@
 /* ===== Amplop Dear Little Me ===== */
 .envelope-scene {
     position: relative;
-    width: 320px;
-    height: 240px;
+    width: min(320px, 82vw);
+    aspect-ratio: 4 / 3;
+    height: auto;
     perspective: 1200px;
 }
 

@@ -20,22 +20,24 @@ export default function Dashboard({ contents }) {
                             Temukan ruang aman di sini untuk bercerita dan belajar tentang self-love
                         </h1>
 
-                        <p className="mt-4 text-base text-green-100">
-                            Mencintai diri sendiri bukanlah kemewahan, melainkan fondasi.
-                        </p>
+                        <div className="hidden md:block">
+                            <p className="mt-4 text-base text-green-100">
+                                Mencintai diri sendiri bukanlah kemewahan, melainkan fondasi.
+                            </p>
 
-                        <div className="mt-6">
-                            <Link
-                                href={route('assessments.index')}
-                                className="inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-green-700 transition hover:bg-green-50"
-                            >
-                                Start Assessment
-                            </Link>
+                            <div className="mt-6">
+                                <Link
+                                    href={route('assessments.index')}
+                                    className="inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-green-700 transition hover:bg-green-50"
+                                >
+                                    Start Assessment
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
                     {/* Kanan */}
-                    <div className="flex w-full items-end justify-end md:h-full md:w-1/2">
+                    <div className="flex w-full items-end justify-center md:h-full md:w-1/2">
                         <div className="relative flex h-full w-full items-end justify-center">
 
                             {/* Ripple */}
@@ -45,8 +47,22 @@ export default function Dashboard({ contents }) {
                             <img
                                 src="/images/hero.png"
                                 alt="Hero"
-                                className="relative z-10 max-h-56 w-auto object-contain sm:max-h-72 md:max-h-[360px]"
+                                className="relative z-10 max-h-64 w-auto object-contain sm:max-h-80 md:max-h-[360px]"
                             />
+                        </div>
+                    </div>
+
+                    <div className="w-full pb-2 md:hidden">
+                        <p className="text-base text-green-100">
+                            Mencintai diri sendiri bukanlah kemewahan, melainkan fondasi.
+                        </p>
+                        <div className="mt-6">
+                            <Link
+                                href={route('assessments.index')}
+                                className="inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-green-700 transition hover:bg-green-50"
+                            >
+                                Start Assessment
+                            </Link>
                         </div>
                     </div>
 
